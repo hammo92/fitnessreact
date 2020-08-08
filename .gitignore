@@ -1,7 +1,13 @@
 .DS_STORE
 node_modules
 build
+.idea
 .module-cache
 *.log*
 _nogit
 todo.md
+command.sh
+.unibeautifyrc.yaml
+.eslintrc
+.eslintrc.yaml
+.prettierrc

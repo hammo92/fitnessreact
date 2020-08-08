@@ -1,3 +1,4 @@
+'use strict';
 import 'babel-polyfill';
 import 'isomorphic-fetch';
 
@@ -10,8 +11,13 @@ import { Provider } from 'react-redux';
 import configureStore from 'config/store';
 import App from 'views/App';
 
+import registerServiceWorker from './registerServiceWorker';
+
 // Load CSS
 import 'index.css';
+
+//Load Fontawesome
+import './lib/Fontawesome';
 
 const store = configureStore().store;
 
@@ -19,12 +25,14 @@ const store = configureStore().store;
 const renderMethod = process.env.HYDRATE ? ReactDOM.hydrate : ReactDOM.render;
 
 renderMethod(
-    <AppContainer>
-        <Provider store={ store }>
-            <BrowserRouter>
-                <App />                
-            </BrowserRouter>
-        </Provider>
-    </AppContainer>,
-    document.getElementById('root')
+  <AppContainer>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </AppContainer>,
+  document.getElementById('root'),
 );
+
+registerServiceWorker();
